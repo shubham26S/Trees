@@ -1,0 +1,24 @@
+package trees;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+public class Paths {
+	public static void main(String[] args) {
+
+	}
+	public List<String> binaryTreePaths(TreeNode root) {
+		LinkedList<String> l = new LinkedList<>();
+		Stack<TreeNode> st = new Stack<>();
+		st.add(root);
+		while(!st.isEmpty()){
+			TreeNode t = st.pop();
+			l.add(t.val);
+			if(t.left != null) st.push(t.left);
+			if(t.right != null) st.push(t.right);
+		}
+	}
+
+
+}

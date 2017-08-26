@@ -15,8 +15,6 @@ class PathSum {
 		root.left.left = new TreeNode(4);
 		root.left.right = new TreeNode(5);
 		root.right.left = new TreeNode(6);
-		
-		
 		System.out.println(p.hasPathSum(root, 7));
 	}
 }
