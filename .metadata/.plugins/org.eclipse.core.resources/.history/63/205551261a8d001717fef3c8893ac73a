@@ -1,0 +1,13 @@
+package trees;
+
+public class ShortestTree {
+	public static void main(String[] args) {
+		
+	}
+	int minVal = 0;
+	void minTree(TreeNode t){
+		
+	}
+	
+	
+}

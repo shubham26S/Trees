@@ -1,0 +1,19 @@
+package trees;
+import java.util.*;
+public class TwoSum {
+	public static void main(String[] args) {
+
+	}
+//	public boolean findTarget(TreeNode root, int k) {
+//
+	}
+	ArrayList <TreeNode> arr = new ArrayList<>();
+	void InOrder(TreeNode t){
+		if(t == null){
+			return;
+		}
+		InOrder(t.left);
+		arr.add(t);
+		InOrder(t.right);
+	}
+}

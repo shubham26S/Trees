@@ -1,0 +1,19 @@
+package trees;
+
+public class ModeInBST {
+	public static void main(String[] args) {
+		
+	}
+	void mode(TreeNode t){
+		
+	}
+	TreeNode InOrder(TreeNode root){
+		if(root == null){
+			return null;
+		}
+		InOrder(root.left);
+		TreeNode k = root;
+		InOrder(root.right);
+		return k;
+	}
+}

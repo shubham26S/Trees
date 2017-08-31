@@ -1,0 +1,21 @@
+package trees;
+
+public class ShortestTree {
+	public static void main(String[] args) {
+		
+	}
+	int minVal = 0;
+	void minTree(TreeNode t){
+		if(t == null){
+			return;
+		}
+		int h = 1;
+		if(t.left != null || t.right != null){
+			h++;
+		}
+		minTree(t.left);
+		minTree(t.right);
+	}
+	
+	
+}
