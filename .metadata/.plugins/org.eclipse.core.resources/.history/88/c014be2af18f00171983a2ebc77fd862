@@ -1,0 +1,30 @@
+package trees;
+import java.util.*;
+public class LCABT {
+	public static void main(String[] args) {
+		
+	}
+	static boolean isn1 = false;
+	static boolean isn2 = false;
+	TreeNode FindLCA(TreeNode t, int n1, int n2){
+		if(t == null){
+			return null;
+		}
+		if(t.val == n1){
+			isn1 = true;
+			return t;
+		}
+		if(t.val == n2){
+			isn2 = true;
+			return t;
+		}
+		TreeNode l_lca = FindLCA(t.left, n1, n2);
+		TreeNode r_lca = FindLCA(t.right, n1, n2);
+		
+		if(l_lca != null && r_lca != null){
+			return t;
+		}
+		return l_lca != null ? l_lca : r_lca;
+	}
+	
+}

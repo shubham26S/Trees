@@ -1,0 +1,13 @@
+package trees;
+import java.util.*;
+public class LCABT {
+	public static void main(String[] args) {
+		
+	}
+	ArrayList<TreeNode> arr1 = new ArrayList<>();
+	ArrayList<TreeNode> arr2 = new ArrayList<>();
+
+	void FindNode(TreeNode t, TreeNode n, ArrayList<TreeNode> arr){
+		
+	}
+}

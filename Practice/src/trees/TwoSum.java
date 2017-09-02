@@ -10,7 +10,8 @@ public class TwoSum {
 		a.right.right = new TreeNode(6);
 		TwoSum s = new TwoSum();
 		System.out.println(s.findTarget(a, 12));
-		
+		System.out.println(s.arrSum(arr,10));
+
 	}
 	public boolean findTarget(TreeNode root, int k) {
 		InOrder(root);
@@ -27,15 +28,21 @@ public class TwoSum {
 				left++;
 			}
 		}
-//		for(int i = 0 ; i < arr.size() - 1; i++){
-//			for(int j = i+1; j < arr.size(); j++){
-//				if(arr.get(i).val + arr.get(j).val == k){
-//					return true;
-//				}
-//			}
-//		}
 		return false;
 	}
+
+ boolean arrSum(ArrayList<TreeNode> arr, int num){
+	 HashSet<Integer> hm = new HashSet<>();
+	 for(int i = 0 ; i < arr.size(); i++){
+		 int val = num - arr.get(i).val;
+		 if(!hm.contains(val)){
+			 hm.add((Integer) arr.get(i).val);
+		 }
+		 else return true;
+	 }
+	 return false;
+ }
+
 	static ArrayList <TreeNode> arr = new ArrayList<>();
 	void InOrder(TreeNode t){
 		if(t == null){

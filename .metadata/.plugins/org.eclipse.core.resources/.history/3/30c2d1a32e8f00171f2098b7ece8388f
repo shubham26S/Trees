@@ -1,0 +1,52 @@
+package trees;
+import java.util.*;
+public class SubTree {
+	public void isSubtree(TreeNode s, TreeNode t) {
+		TreeNode temp = t;
+		inOrder(t);
+		ArrayList<TreeNode> tempArr = mainarr;
+		for(TreeNode a : tempArr){
+			System.out.println(a.val);
+		}
+		System.out.println();
+		checkUtil(s, temp);
+		inOrder(temp);
+		ArrayList<TreeNode> tempArr2 = mainarr;
+		for(TreeNode b : tempArr2){
+			System.out.println(b.val);
+		}
+	}
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+		root.left.left = new TreeNode(4);
+		root.left.right = new TreeNode(5);
+		root.right.left = new TreeNode(6);
+		
+		TreeNode n = new TreeNode(3);
+		n.left = new TreeNode(4);
+		n.right = new TreeNode(5);
+		SubTree s = new SubTree();
+		s.isSubtree(n, root);
+		
+		
+	}
+	void checkUtil(TreeNode s, TreeNode t){
+		if(t == null || s == null){
+			return;
+		}
+		if(t.val == s.val){
+			t = s;
+		}
+	}
+	ArrayList<TreeNode> mainarr= new ArrayList<>();
+	void inOrder(TreeNode t){
+		if(t == null){
+			return;
+		}
+		inOrder(t.left);
+		mainarr.add(t);
+		inOrder(t.right);
+	}
+}

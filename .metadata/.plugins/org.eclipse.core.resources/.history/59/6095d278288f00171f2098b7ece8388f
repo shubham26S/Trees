@@ -1,0 +1,92 @@
+package trees;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class LevelOrder {
+private class TreeNode {
+  int val;
+  TreeNode left;
+  TreeNode right;
+  TreeNode(int x) { val = x; }
+}
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+		root.left.left = new TreeNode(4);
+		root.left.right = new TreeNode(5);
+		root.right.left = new TreeNode(6);
+		
+		LevelOrder a = new LevelOrder();
+		a.levelOrderPrint(root);  //Iterative (using Queue BFS)
+		
+		a.printTree(root); //Recursive 
+	}
+	
+	void levelOrderPrint(TreeNode t) {
+		Queue<TreeNode> q = new LinkedList<>();
+		q.add(t);
+		while(!q.isEmpty()) {
+			int count = q.size(); //to keep count of elements in queue which will help in moving to next line
+			while(count > 0) {
+				TreeNode temp = q.poll();
+				System.out.print(temp.val);
+				count--;
+				if(temp.left != null) {
+					q.add(temp.left);
+				}
+				if(temp.right != null) {
+					q.add(temp.right);
+				}	
+			}
+			System.out.println();
+			
+			
+		}
+		
+	
+	}
+	
+	int height (TreeNode t) {
+		if(t == null) {
+			return 0;
+		}
+		else {
+			int lheight = height(t.left);
+			int rheight = height(t.right);
+			
+			if(lheight > rheight) {
+				return lheight+1;
+			}
+			return rheight+1;
+		}
+		
+	}
+	
+	void printGivenLevel(TreeNode t, int h) {
+		if(t == null) {
+			return;
+		}
+		if(h ==1){
+			System.out.print(t.val);
+		}
+		else {
+			printGivenLevel(t.left, h-1);
+			printGivenLevel(t.right, h-1);
+		}
+		
+	}
+	void printTree(TreeNode t) {
+		if(t == null) {
+			return;
+		}
+		int h = height(t);
+		for(int i = 1; i <= h; i++) {
+			printGivenLevel(t, i);
+			System.out.println();
+		}
+		
+	}
+	
+}

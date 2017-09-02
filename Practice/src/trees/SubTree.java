@@ -1,0 +1,43 @@
+package trees;
+public class SubTree {
+	public boolean isSubtree(TreeNode s, TreeNode t) {
+		if(t == null) return true;
+		if(s == null)return false;
+		
+//		if(subTreeUtil(s, t)) return true;
+//		boolean l = isSubtree(s, t.left);
+//		boolean r = isSubtree(s, t.right);
+//		return l || r;
+		return (subTreeUtil(s, t) || subTreeUtil(s, t.left) || subTreeUtil(s, t.right));
+	}
+	
+	boolean subTreeUtil(TreeNode s, TreeNode t){
+		if(t == null && s == null){
+			return true;
+		}
+		if(t == null || s == null){
+			return false;
+		}
+		else if(t.val == s.val){
+			return subTreeUtil(s.left, t.left) && subTreeUtil(s.right, t.right);
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(3);
+		root.left = new TreeNode(4);
+		root.right = new TreeNode(5);
+		root.left.left = new TreeNode(2);
+		root.left.right = new TreeNode(1);
+//		root.right.left = new TreeNode(6);
+		
+		TreeNode n = new TreeNode(4);
+		n.left = new TreeNode(2);
+		n.right = new TreeNode(1);
+		SubTree s = new SubTree();
+		System.out.println(s.isSubtree(n, root));
+		
+		
+	}
+}

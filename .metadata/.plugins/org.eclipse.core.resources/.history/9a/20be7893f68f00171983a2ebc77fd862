@@ -1,0 +1,41 @@
+package trees;
+import java.util.*;
+public class LCABT {
+	public static void main(String[] args) {
+		
+	}
+	static boolean isn1 = false;
+	static boolean isn2 = false;
+	TreeNode root;
+	TreeNode FindLCA(TreeNode t, TreeNode n1, TreeNode n2){
+		if(t == null){
+			return null;
+		}
+		if(t == n1){
+			isn1 = true;
+			return t;
+		}
+		if(t == n2){
+			isn2 = true;
+			return t;
+		}
+		TreeNode l_lca = FindLCA(t.left, n1, n2);
+		TreeNode r_lca = FindLCA(t.right, n1, n2);
+		
+		if(l_lca != null && r_lca != null){
+			return t;
+		}
+		return l_lca != null ? l_lca : r_lca;
+	}
+	
+	TreeNode FindLCA(int TreeNode, TreeNode n2){
+		isn1 = false;
+		isn2 = false;
+		TreeNode t= FindLCA(root, n1, n2);
+		if(isn1 && isn2){
+			return t;
+		}
+		return null;
+	}
+	
+}

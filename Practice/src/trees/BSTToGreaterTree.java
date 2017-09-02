@@ -10,7 +10,7 @@ public class BSTToGreaterTree {
 		if(t == null) {
 			return;
 		}
-		convert(t.right);
+		convert(t.right); 
 		t.val+=sum;
 		sum = t.val;
 		convert(t.left);

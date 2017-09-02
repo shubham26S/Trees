@@ -1,0 +1,26 @@
+package trees;
+import java.util.*;
+public class LCABT {
+	public static void main(String[] args) {
+		
+	}
+	ArrayList<Integer> arr1 = new ArrayList<>();
+	ArrayList<Integer> arr2 = new ArrayList<>();
+
+	boolean FindNode(TreeNode t, int n, ArrayList<Integer> arr){
+		if(t == null){
+			return false;
+		}
+		arr.add(t.val);
+		if(t.val == n){
+			return true;
+		}
+		if(t.left != null && FindNode(t.left, n, arr)){
+			return true;
+		}
+		if(t.right != null && FindNode(t.right, n, arr)){
+			return true;
+		}
+		arr.remove(arr.size()-1);
+	}
+}

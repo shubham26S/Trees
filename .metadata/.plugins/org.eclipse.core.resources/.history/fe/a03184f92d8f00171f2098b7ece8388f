@@ -1,0 +1,20 @@
+package trees;
+import java.util.*;
+public class SubTree {
+	public boolean isSubtree(TreeNode s, TreeNode t) {
+		TreeNode temp = t;
+		
+	}
+	public static void main(String[] args) {
+		
+	}
+	ArrayList<TreeNode> mainarr= new ArrayList<>();
+	void inOrder(TreeNode t){
+		if(t == null){
+			return;
+		}
+		inOrder(t.left);
+		mainarr.add(t);
+		inOrder(t.right);
+	}
+}
