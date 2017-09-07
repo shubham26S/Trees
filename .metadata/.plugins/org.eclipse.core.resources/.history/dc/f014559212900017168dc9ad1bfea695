@@ -1,0 +1,46 @@
+package trees;
+import java.util.*;
+public class FlattenedTree {
+	public static void main(String[] args) {
+		TreeNode root = new TreeNode(1);
+		root.left = new TreeNode(2);
+		root.right = new TreeNode(3);
+		root.left.left = new TreeNode(4);
+		root.left.right = new TreeNode(5);
+		root.right.left = new TreeNode(6);
+		FlattenedTree k = new FlattenedTree();
+		k.Flat(root);
+		for(TreeNode t : arr){
+			System.out.println(t.val);
+		}
+	}
+	static ArrayList<TreeNode> arr = new ArrayList<>();
+	void Flat(TreeNode t){
+		if(t == null){
+			return;
+		}
+		arr.add(t);
+		Flat(t.left);
+		Flat(t.right);
+	}
+
+	void flatTree(TreeNode t){
+		if(t == null){
+			return;
+		}
+		flatTree(t.left);
+		flatTree(t.right);
+		if(t.left != null && t.right != null){
+			TreeNode temp = t.right;
+			TreeNode temp2 = t.left;
+			t.right  = t.left;
+			
+			while(temp2 != null){
+				temp2 = temp2.right;
+			}
+			temp2.right = temp;
+		}
+	}
+
+
+}

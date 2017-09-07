@@ -1,0 +1,19 @@
+package trees;
+import java.util.*;
+public class FlattenedTree {
+	public static void main(String[] args) {
+
+	}
+	ArrayList<TreeNode> arr = new ArrayList<>();
+	void Flat(TreeNode t){
+		if(t == null){
+			return;
+		}
+		arr.add(t);
+		Flat(t.left);
+		Flat(t.right);
+	}
+
+
+
+}

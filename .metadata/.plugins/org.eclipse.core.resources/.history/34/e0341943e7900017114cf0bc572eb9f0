@@ -1,0 +1,13 @@
+package arrays;
+
+class ImageSmoother{
+	public int[][] imageSmoother(int[][] M) {
+		int width = M[0].length;
+		int height = M[0].length;
+		for(int i = 0 ; i < height; i++){
+			for(int j = 0 ; j < width; j++){
+
+			}
+		}
+	}
+}
